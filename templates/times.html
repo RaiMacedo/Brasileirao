@@ -1,0 +1,113 @@
+{% extends "template.html" %}
+{% block body %}
+    <h1>Times</h1>
+        
+    <select id="info" name="info" onchange="Mudadiv()">
+        <option disabled selected value="">Opção</option>
+        <option value="div0" >Nova Interação </option>
+        <option {{infoT}} value="div1" >Alteração </option>
+        <option {{infoT1}} value="div2" >Remover</option>
+            
+    </select>  
+
+    <div class="some" id="div0">
+            <form action="/cadastrarTime" method="POST">
+                <label for="nome">Novo time</label>
+                <input type="text" autocomplete="off" autofocus name="nome" placeholder="Novo time">
+                <input type="submit" value="Cadastrar">
+                
+            </form>
+    </div>
+    
+    <div class="{{ some }}" id="div1">
+
+        <form id="alterar" action="/alterarTime" method="POST"> 
+            <label for="codigo">codigo</label>
+            <input type="text" autocomplete="off" autofocus name="codigo" placeholder="Codigo" value="{{codigo}}">
+            <input type="submit" name="submitalter" value="Buscar">
+            {% for tim in pesquisa %}
+                <label for="nome">Nome do time</label>
+                <input type="text" value="{{ tim.nome }}"  autocomplete="off" autofocus name="nome" placeholder="Nome do time">
+
+                <label for="pontuacao">Pontuação</label>
+                <input type="text" value="{{ tim.pontuacao }}"  autocomplete="off" autofocus name="pontuacao" placeholder="Pontuação">
+
+                <label for="partidas">Partidas</label>
+                <input type="text" value="{{ tim.partidas }}"  autocomplete="off" autofocus name="partidas" placeholder="Partidas">
+                    
+                <label for="vitorias">Vitórias</label>
+                <input type="text" value="{{ tim.vitorias }}"  autocomplete="off" autofocus name="vitorias" placeholder="Vitórias">
+                    
+                <label for="empates">Empates</label>
+                <input type="text" value="{{ tim.empates }}"  autocomplete="off" autofocus name="empates" placeholder="Empates">
+                    
+                <label for="derrotas">Derrotas</label>
+                <input type="text" value="{{ tim.derrotas }}"  autocomplete="off" autofocus name="derrotas" placeholder="Derrotas">
+                    
+                <label for="golspro">Gols pró</label>
+                <input type="text" value="{{ tim.golspro }}"  autocomplete="off" autofocus name="golspro" placeholder="Gols pró">
+                
+                <label for="golscontra">Gols contra</label>
+                <input type="text" value="{{ tim.golscontra }}"  autocomplete="off" autofocus name="golscontra" placeholder="Gols contra">
+                    
+                <label for="saldogols">Saldo de gols</label>
+                <input type="text" value="{{ tim.saldogols }}"  disabled autocomplete="off" autofocus name="saldogols" placeholder="Saldo de gols">                
+            {% endfor %}
+            <input type="submit" name="submitalter" value="Alterar">
+        </form>
+    </div>
+    
+    <div class="{{ some1 }}" id="div2">
+        <form id="excluir" action="/excluirTime" method="POST"> 
+            <label for="codigo">codigo</label>
+            <input type="text" autocomplete="off" autofocus name="codigo" placeholder="Codigo" value="{{codigo}}">
+            <input type="submit" name="submitalter1" value="Buscar">
+            {% for tim in pesquisa1 %}
+                <label for="nome">Nome do time</label>
+                <input type="text" value="{{ tim.nome }}" disabled  autocomplete="off" autofocus name="nome" placeholder="Nome do time">
+        
+                <label for="pontuacao">Pontuação</label>
+                <input type="text" value="{{ tim.pontuacao }}" disabled autocomplete="off" autofocus name="pontuacao" placeholder="Pontuação">
+        
+                <label for="partidas">Partidas</label>
+                <input type="text" value="{{ tim.partidas }}" disabled autocomplete="off" autofocus name="partidas" placeholder="Partidas">
+                            
+                <label for="vitorias">Vitórias</label>
+                <input type="text" value="{{ tim.vitorias }}" disabled autocomplete="off" autofocus name="vitorias" placeholder="Vitórias">
+                            
+                <label for="empates">Empates</label>
+                <input type="text" value="{{ tim.empates }}" disabled autocomplete="off" autofocus name="empates" placeholder="Empates">
+                            
+                <label for="derrotas">Derrotas</label>
+                <input type="text" value="{{ tim.derrotas }}" disabled autocomplete="off" autofocus name="derrotas" placeholder="Derrotas">
+                            
+                <label for="golspro">Gols pró</label>
+                <input type="text" value="{{ tim.golspro }}" disabled autocomplete="off" autofocus name="golspro" placeholder="Gols pró">
+                        
+                <label for="golscontra">Gols contra</label>
+                <input type="text" value="{{ tim.golscontra }}" disabled autocomplete="off" autofocus name="golscontra" placeholder="Gols contra">
+                            
+                <label for="saldogols">Saldo de gols</label>
+                <input type="text" value="{{ tim.saldogols }}" disabled autocomplete="off" autofocus name="saldogols" placeholder="Saldo de gols">                
+            {% endfor %}
+            <input type="submit" name="submitalter1" value="Excluir">
+        </form>
+    </div>
+            
+    <h2>{{mensagem}}</h2>
+
+    <div id="botoes">
+        <form action="/telaInicial">
+            <input type="submit" name="Tabela" value="Tela Inicial">
+        </form>
+
+        <form action="/telaTabela">
+            <input type="submit" name="Tabela" value="Tabela">
+        </form>
+
+        <form action="/telaJogos">
+            <input type="submit" name="Tabela" value="Tela Jogos">
+        </form>
+    </div>
+
+{% endblock %}

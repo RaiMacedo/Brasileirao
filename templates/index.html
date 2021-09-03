@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+{% block body %}
+    <h1>Bem vindo a criação de campeonato do brasileirão</h1>
+    <div id="botoes">
+        <form action="/telaTimes">
+            <input type="submit" name="Tabela" value="Times">
+        </form>
+
+        <form action="/telaTabela">
+            <input type="submit" name="Tabela" value="Tabela">
+        </form>
+
+        <form action="/telaTabela">
+            <input type="submit" name="Tabela" value="Tela Jogos">
+        </form>
+    </div>
+{% endblock %}

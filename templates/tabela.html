@@ -1,0 +1,96 @@
+{% extends "template.html" %}
+{% block body %}
+    <h1>Tabela de Pontuação</h1>
+    <div id="tabelaPontuacao">
+        
+        <table id="pontos">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome do Time</th>
+                    <th>Pts</th>
+                    <th>PJ</th>
+                    <th>VIT</th>
+                    <th>E</th>
+                    <th>DER</th>
+                    <th>GP</th>
+                    <th>GC</th>
+                    <th>SG</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tim in times %}
+                    <tr>
+                        <td>{{ tim.id_time }}</td>
+                        <td>{{ tim.nome }}</td>
+                        <td>{{ tim.pontuacao }}</td>
+                        <td>{{ tim.partidas }}</td>
+                        <td>{{ tim.vitorias }}</td>
+                        <td>{{ tim.empates }}</td>
+                        <td>{{ tim.derrotas }}</td>
+                        <td>{{ tim.golspro }}</td>
+                        <td>{{ tim.golscontra }}</td>
+                        <td>{{ tim.saldogols }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br/>
+        <hr/>
+        <br/>
+        <div id="tabelatime1">
+            <table id="tabelatime1">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Time 1</th>
+                        <th>Gols</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jogs in jogos1 %}
+                        <tr>
+                            <td>{{ jogs.id_jogo }}</td>
+                            <td>{{ jogs.time_1 }}</td>
+                            <td>{{ jogs.gols_time_1 }}</td>
+                            <td>X</td>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="tabelatime2">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Gols</th>
+                        <th>Time 2</th>
+                        <th>Time vencedor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jog in jogos2 %}
+                            <td>{{ jog.gols_time_2 }}</td>
+                            <td>{{ jog.time_2 }}</td>
+                            <td>{{ jog.resultado }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br/><br/>
+        <div id="botoes">
+            <form action="/telaInicial">
+                <input type="submit" name="Tabela" value="Tela Inicial">
+            </form>
+
+            <form action="/telaTimes">
+                <input type="submit" name="Tabela" value="Times">
+            </form>
+
+            <form action="/telaJogos">
+                <input type="submit" name="Tabela" value="Tela Jogos">
+            </form>
+        </div>
+    </div>
+{% endblock %}

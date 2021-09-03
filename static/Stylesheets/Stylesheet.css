@@ -1,0 +1,126 @@
+.some{
+    display: none;
+}
+
+#paitime{
+    
+    width: 550px;
+    height: auto;
+}
+
+#lblTime1{
+    display: inline-block;
+    
+}
+
+#lblTime2{
+    display: inline-block;
+    
+}
+
+
+#codtime1{
+    width: 45px;
+    
+}
+#codtime2{
+    width: 45px;
+    
+}
+
+#submitJogo{
+    margin-left: 140px;
+    top: 165px;
+    position: absolute;
+}
+
+form div#divtime1{
+    display: inline-block;
+    margin-right: 80px;
+    
+}
+
+form h2#x{
+    display: inline-block;
+    position: relative;
+    margin-right: 80px;
+    
+}
+
+form div#divtime2{
+    display: inline-block;
+    
+}
+
+#radiovenceu1{
+    display: inline-block;
+    margin-right: 100px;
+    
+}
+#radioempate{
+    display: inline-block;
+    margin-right: 90px;
+    
+}
+#radiovenceu2{
+    display: inline-block;
+    
+}
+
+#goltime1{
+    display:  inline-block;
+    margin-right: 130px;
+    
+}
+input#goltime1{
+    width: 35px;
+    margin-bottom: 30px;
+    
+}
+
+#goltime2{
+    display:  inline-block;
+    
+}
+input#goltime2{
+    width: 35px;
+    
+    
+}
+
+
+
+
+
+
+
+
+
+table#pontos td{
+    text-align: center;
+}
+
+#tabelatime1{
+    display: block;
+    float: left;
+    
+}
+div#tabelatime1 table td{
+    text-align: center;
+    
+    
+}
+div#tabelatime2 table td{
+    text-align: center;
+    
+}
+
+div#botoes{
+    margin-top: 30px;
+    width: 400px;
+    
+}
+div#botoes form input{
+    float: left;
+    margin: 0px 10px;
+}

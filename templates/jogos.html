@@ -1,0 +1,92 @@
+{% extends "template.html" %}
+{% block body %}
+
+    <h1>Computação dos Jogos</h1>
+
+    <div class="" id="divjogo0">
+        <form action="/novoJogo" method="POST">
+            <h2>Novo Jogo</h2>
+            <br/>
+            <div id="paitime">
+                <div id="divtime1">
+                    <label for="codtime1">Codigo do time 1</label>
+                    <br/>
+                    <input type="text" autocomplete="off" autofocus name="codtime1" id="codtime1" value="{{ codtime1 }}" placeholder="Codigo do time 1">
+                    <input id="submitJogo" type="submit" name="submitJogo" value="Buscar times">
+                    <br/><br/><br/><br/>
+                    <label for="time1">Time:</label>
+                    <div class="{{ sometime1 }}" >
+                        <input type="text" disabled autocomplete="off" name="time1" autofocus placeholder="Time 1">
+                    </div>
+                    <div>
+                        {% for time in pesquisa %}
+                            <input type="text" disabled autocomplete="off" value="{{ time.nome }}" autofocus name="time1" placeholder="Time 1">
+                        {% endfor %}
+                    </div>
+                </div>
+                <h2 id="x">X</h2>
+                <div id="divtime2">
+                    <label for="codtime2">Codigo do time 2</label>
+                    <br/>
+                    <input type="text" autocomplete="off" autofocus name="codtime2" value="{{ codtime2 }}" id="codtime2" placeholder="Codigo do time 2">
+                    <br/><br/><br/><br/>
+                    <label for="time2">Time:</label>
+                    <div class="{{ sometime2 }}" >
+                        <input type="text" disabled autocomplete="off" name="time2" autofocus placeholder="Time 2">
+                    </div>
+                        <div>
+                            {% for tim in pesquisa1 %}
+                                <input type="text" disabled autocomplete="off" value="{{ tim.nome }}" autofocus name="time2" placeholder="Time 2">
+                            {% endfor %}
+                        </div>
+                </div>
+                <br/><br/>
+                <div>
+                    <div id="radiovenceu1">
+                        <label for="time1venceu">Time 1 venceu: </label>
+                        <input id="time1venceu" name="radioresutado" value="Time 1 venceu" type="radio">
+                    </div>
+                    <div id="radioempate">
+                        <label for="empate">Empate: </label>
+                        <input id="empate"  name="radioresutado" value="Empate" type="radio">
+                    </div>
+                    <div id="radiovenceu2">
+                        <label for="time2venceu">Time 2 venceu: </label>
+                        <input id="time2venceu" name="radioresutado" value="Time 2 venceu" type="radio">
+                    </div>
+                </div>
+                <br/><br/>
+                <div id="goltime1">
+                    <label for="goltime1">Gols time 1: </label>
+                    <input type="number" autocomplete="off" autofocus name="goltime1" id="goltime1" placeholder="Gols" min="0" max="20">
+                </div>
+                <div id="goltime2">
+                    <label for="goltime2">Gosl time 2: </label>
+                    <input type="number" autocomplete="off" autofocus name="goltime2" id="goltime2" placeholder="Gols" min="0" max="20">
+                </div>
+                <br/>
+                <h2>{{ mensagem }}</h2>
+                <input type="submit" name="submitJogo" value="Encerrar Jogo">
+            </div>
+
+            
+
+        </form>
+        
+
+        <div id="botoes">
+            <form action="/telaInicial">
+                <input type="submit" name="Tabela" value="Tela Inicial">
+            </form>
+
+            <form action="/telaTimes">
+                <input type="submit" name="Tabela" value="Times">
+            </form>
+
+            <form action="/telaTabela">
+                <input type="submit" name="Tabela" value="Tabela">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
